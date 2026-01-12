@@ -1,0 +1,48 @@
+# Dependencies
+node_modules/
+vendor/
+
+# Environment & secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+secrets/
+
+# Docker volumes data
+data/
+thumbor-data/
+nginx-cache/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# OS files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Test outputs
+/tmp/
+*.test.jpg
+*.test.webp
+*.test.avif
+
+# Cache
+.cache/
+__pycache__/
+*.pyc
