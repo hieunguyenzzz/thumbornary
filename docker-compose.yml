@@ -3,7 +3,6 @@ version: '3.8'
 services:
   thumbor:
     image: thumbororg/thumbor:latest
-    container_name: thumbornary-thumbor
     restart: unless-stopped
     volumes:
       - ./thumbor.conf:/app/thumbor.conf:ro
@@ -18,15 +17,10 @@ services:
       timeout: 10s
       retries: 3
       start_period: 10s
-    networks:
-      - thumbornary
 
   nginx:
     image: nginx:alpine
-    container_name: thumbornary-nginx
     restart: unless-stopped
-    ports:
-      - "8180:80"
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf:ro
       - nginx-cache:/var/cache/nginx
@@ -38,15 +32,9 @@ services:
       interval: 30s
       timeout: 10s
       retries: 3
-    networks:
-      - thumbornary
 
 volumes:
   thumbor-data:
     driver: local
   nginx-cache:
     driver: local
-
-networks:
-  thumbornary:
-    driver: bridge
